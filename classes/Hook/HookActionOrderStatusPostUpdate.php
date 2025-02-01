@@ -18,17 +18,17 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Hooks;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Hooks;
 
 use Configuration;
 use Context;
 use Db;
-use Ps_Googleanalytics;
+use Qlo_Googleanalytics;
 
 class HookActionOrderStatusPostUpdate implements HookInterface
 {
     /**
-     * @var Ps_Googleanalytics
+     * @var Qlo_Googleanalytics
      */
     private $module;
 
@@ -42,7 +42,7 @@ class HookActionOrderStatusPostUpdate implements HookInterface
      */
     private $params;
 
-    public function __construct(Ps_Googleanalytics $module, Context $context)
+    public function __construct(Qlo_Googleanalytics $module, Context $context)
     {
         $this->module = $module;
         $this->context = $context;

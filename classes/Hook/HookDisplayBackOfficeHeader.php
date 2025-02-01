@@ -18,18 +18,18 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Hooks;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Hooks;
 
 use Cart;
 use Configuration;
 use Context;
 use Db;
 use Order;
-use PrestaShop\Module\Ps_Googleanalytics\Handler\GanalyticsJsHandler;
-use PrestaShop\Module\Ps_Googleanalytics\Repository\GanalyticsRepository;
-use PrestaShop\Module\Ps_Googleanalytics\Wrapper\OrderWrapper;
-use PrestaShop\Module\Ps_Googleanalytics\Wrapper\ProductWrapper;
-use Ps_Googleanalytics;
+use PrestaShop\Module\Qlo_Googleanalytics\Handler\GanalyticsJsHandler;
+use PrestaShop\Module\Qlo_Googleanalytics\Repository\GanalyticsRepository;
+use PrestaShop\Module\Qlo_Googleanalytics\Wrapper\OrderWrapper;
+use PrestaShop\Module\Qlo_Googleanalytics\Wrapper\ProductWrapper;
+use Qlo_Googleanalytics;
 use Tools;
 use Validate;
 
@@ -39,7 +39,7 @@ class HookDisplayBackOfficeHeader implements HookInterface
     private $context;
     private $gaScripts = '';
 
-    public function __construct(Ps_Googleanalytics $module, Context $context)
+    public function __construct(Qlo_Googleanalytics $module, Context $context)
     {
         $this->module = $module;
         $this->context = $context;

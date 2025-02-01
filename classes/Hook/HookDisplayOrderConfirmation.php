@@ -18,16 +18,16 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Hooks;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Hooks;
 
 use Cart;
 use Configuration;
 use Context;
-use PrestaShop\Module\Ps_Googleanalytics\Handler\GanalyticsJsHandler;
-use PrestaShop\Module\Ps_Googleanalytics\Repository\GanalyticsRepository;
-use PrestaShop\Module\Ps_Googleanalytics\Wrapper\OrderWrapper;
-use PrestaShop\Module\Ps_Googleanalytics\Wrapper\ProductWrapper;
-use Ps_Googleanalytics;
+use PrestaShop\Module\Qlo_Googleanalytics\Handler\GanalyticsJsHandler;
+use PrestaShop\Module\Qlo_Googleanalytics\Repository\GanalyticsRepository;
+use PrestaShop\Module\Qlo_Googleanalytics\Wrapper\OrderWrapper;
+use PrestaShop\Module\Qlo_Googleanalytics\Wrapper\ProductWrapper;
+use Qlo_Googleanalytics;
 use Validate;
 
 class HookDisplayOrderConfirmation implements HookInterface
@@ -36,7 +36,7 @@ class HookDisplayOrderConfirmation implements HookInterface
     private $context;
     private $params;
 
-    public function __construct(Ps_Googleanalytics $module, Context $context)
+    public function __construct(Qlo_Googleanalytics $module, Context $context)
     {
         $this->module = $module;
         $this->context = $context;
@@ -97,7 +97,7 @@ class HookDisplayOrderConfirmation implements HookInterface
         $gaScripts .= $this->module->getTools()->renderPurchaseEvent(
             $orderProducts,
             $orderData,
-            $this->context->link->getModuleLink('ps_googleanalytics', 'ajax', [], true)
+            $this->context->link->getModuleLink('qlo_googleanalytics', 'ajax', [], true)
         );
 
         return $gaTagHandler->generate($gaScripts);

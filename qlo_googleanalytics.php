@@ -16,6 +16,10 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
+ * 
+ * MODIFICATION NOTICE
+ * 
+ * Modified by Digital Malayali Studio (https://studio.digitalmalayali.in/) for compatibility with QloApps.
  */
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -26,7 +30,7 @@ if (file_exists($autoloadPath)) {
     require_once $autoloadPath;
 }
 
-class Ps_Googleanalytics extends Module
+class Qlo_Googleanalytics extends Module
 {
     public $name;
     public $tab;
@@ -45,19 +49,18 @@ class Ps_Googleanalytics extends Module
 
     public function __construct()
     {
-        $this->name = 'ps_googleanalytics';
+        $this->name = 'qlo_googleanalytics';
         $this->tab = 'analytics_stats';
-        $this->version = '5.0.2';
-        $this->ps_versions_compliancy = ['min' => '1.7.7', 'max' => _PS_VERSION_];
+        $this->version = '1.0.0';
+        $this->ps_versions_compliancy = ['min' => '1.6', 'max' => _PS_VERSION_];
         $this->author = 'PrestaShop';
-        $this->module_key = 'fd2aaefea84ac1bb512e6f1878d990b8';
         $this->bootstrap = true;
 
         parent::__construct();
 
-        $this->displayName = $this->trans('Google Analytics', [], 'Modules.Googleanalytics.Admin');
-        $this->description = $this->trans('Gain clear insights into important metrics about your customers, using Google Analytics', [], 'Modules.Googleanalytics.Admin');
-        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall Google Analytics? You will lose all the data related to this module.', [], 'Modules.Googleanalytics.Admin');
+        $this->displayName = $this->l('Google Analytics', [], 'Modules.Googleanalytics.Admin');
+        $this->description = $this->l('Gain clear insights into important metrics about your customers, using Google Analytics', [], 'Modules.Googleanalytics.Admin');
+        $this->confirmUninstall = $this->l('Are you sure you want to uninstall Google Analytics? You will lose all the data related to this module.', [], 'Modules.Googleanalytics.Admin');
     }
 
     /**
@@ -65,7 +68,7 @@ class Ps_Googleanalytics extends Module
      */
     public function getContent()
     {
-        $configurationForm = new PrestaShop\Module\Ps_Googleanalytics\Form\ConfigurationForm($this);
+        $configurationForm = new PrestaShop\Module\Qlo_Googleanalytics\Form\ConfigurationForm($this);
         $output = '';
 
         if (Tools::isSubmit('submit' . $this->name)) {
@@ -80,7 +83,7 @@ class Ps_Googleanalytics extends Module
 
     public function hookDisplayHeader($params, $back_office = false)
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookDisplayHeader($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookDisplayHeader($this, $this->context);
         $hook->setBackOffice($back_office);
 
         return $hook->run();
@@ -88,11 +91,11 @@ class Ps_Googleanalytics extends Module
 
     /**
      * Confirmation page hook.
-     * This function is run to track transactions.
+     * This function is run to track lactions.
      */
     public function hookDisplayOrderConfirmation($params)
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookDisplayOrderConfirmation($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookDisplayOrderConfirmation($this, $this->context);
         $hook->setParams($params);
 
         return $hook->run();
@@ -104,7 +107,7 @@ class Ps_Googleanalytics extends Module
      */
     public function hookDisplayBeforeBodyClosingTag()
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookDisplayBeforeBodyClosingTag($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookDisplayBeforeBodyClosingTag($this, $this->context);
 
         return $hook->run();
     }
@@ -115,18 +118,18 @@ class Ps_Googleanalytics extends Module
      */
     public function hookDisplayFooterProduct()
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookDisplayFooterProduct($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookDisplayFooterProduct($this, $this->context);
 
         return $hook->run();
     }
 
     /**
      * Hook admin order.
-     * This function is run to send transactions and refunds details
+     * This function is run to send lactions and refunds details
      */
     public function hookDisplayAdminOrder()
     {
-        $gaTagHandler = new PrestaShop\Module\Ps_Googleanalytics\Handler\GanalyticsJsHandler($this, $this->context);
+        $gaTagHandler = new PrestaShop\Module\Qlo_Googleanalytics\Handler\GanalyticsJsHandler($this, $this->context);
 
         $output = $gaTagHandler->generate($this->context->cookie->ga_admin_refund);
         unset($this->context->cookie->ga_admin_refund);
@@ -141,7 +144,7 @@ class Ps_Googleanalytics extends Module
      */
     public function hookDisplayBackOfficeHeader()
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookDisplayBackOfficeHeader($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookDisplayBackOfficeHeader($this, $this->context);
 
         return $hook->run();
     }
@@ -152,7 +155,7 @@ class Ps_Googleanalytics extends Module
      */
     public function hookActionProductCancel($params)
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookActionProductCancel($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookActionProductCancel($this, $this->context);
         $hook->setParams($params);
         $hook->run();
     }
@@ -162,7 +165,7 @@ class Ps_Googleanalytics extends Module
      */
     public function hookActionValidateOrder($params)
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookActionValidateOrder($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookActionValidateOrder($this, $this->context);
         $hook->setParams($params);
         $hook->run();
     }
@@ -172,7 +175,7 @@ class Ps_Googleanalytics extends Module
      */
     public function hookActionOrderStatusPostUpdate($params)
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookActionOrderStatusPostUpdate($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookActionOrderStatusPostUpdate($this, $this->context);
         $hook->setParams($params);
         $hook->run();
     }
@@ -183,7 +186,7 @@ class Ps_Googleanalytics extends Module
      */
     public function hookActionCartUpdateQuantityBefore($params)
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookActionCartUpdateQuantityBefore($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookActionCartUpdateQuantityBefore($this, $this->context);
         $hook->setParams($params);
         $hook->run();
     }
@@ -194,14 +197,14 @@ class Ps_Googleanalytics extends Module
      */
     public function hookActionObjectProductInCartDeleteBefore($params)
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookActionObjectProductInCartDeleteBefore($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookActionObjectProductInCartDeleteBefore($this, $this->context);
         $hook->setParams($params);
         $hook->run();
     }
 
     public function hookActionCarrierProcess($params)
     {
-        $hook = new PrestaShop\Module\Ps_Googleanalytics\Hooks\HookActionCarrierProcess($this, $this->context);
+        $hook = new PrestaShop\Module\Qlo_Googleanalytics\Hooks\HookActionCarrierProcess($this, $this->context);
         $hook->setParams($params);
         $hook->run();
     }
@@ -228,7 +231,7 @@ class Ps_Googleanalytics extends Module
      */
     public function install()
     {
-        $database = new PrestaShop\Module\Ps_Googleanalytics\Database\Install($this);
+        $database = new PrestaShop\Module\Qlo_Googleanalytics\Database\Install($this);
 
         return parent::install() &&
             $database->registerHooks() &&
@@ -245,7 +248,7 @@ class Ps_Googleanalytics extends Module
      */
     public function uninstall()
     {
-        $database = new PrestaShop\Module\Ps_Googleanalytics\Database\Uninstall();
+        $database = new PrestaShop\Module\Qlo_Googleanalytics\Database\Uninstall();
 
         return parent::uninstall() &&
             $database->uninstallTab() &&
@@ -258,7 +261,7 @@ class Ps_Googleanalytics extends Module
     public function getTools()
     {
         if ($this->tools === null) {
-            $this->tools = new PrestaShop\Module\Ps_Googleanalytics\GoogleAnalyticsTools();
+            $this->tools = new PrestaShop\Module\Qlo_Googleanalytics\GoogleAnalyticsTools();
         }
 
         return $this->tools;
@@ -270,7 +273,7 @@ class Ps_Googleanalytics extends Module
     public function getDataHandler()
     {
         if ($this->dataHandler === null) {
-            $this->dataHandler = new PrestaShop\Module\Ps_Googleanalytics\Handler\GanalyticsDataHandler(
+            $this->dataHandler = new PrestaShop\Module\Qlo_Googleanalytics\Handler\GanalyticsDataHandler(
                 $this->context->cart->id,
                 $this->context->shop->id
             );

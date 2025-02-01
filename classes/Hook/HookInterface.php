@@ -18,18 +18,18 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Hooks;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Hooks;
 
 use Context;
-use Ps_Googleanalytics;
+use Qlo_Googleanalytics;
 
 interface HookInterface
 {
     /**
-     * @param Ps_Googleanalytics $module
+     * @param Qlo_Googleanalytics $module
      * @param Context $context
      */
-    public function __construct(Ps_Googleanalytics $module, Context $context);
+    public function __construct(Qlo_Googleanalytics $module, Context $context);
 
     public function run();
 }

@@ -18,11 +18,11 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Hooks;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Hooks;
 
 use Context;
-use PrestaShop\Module\Ps_Googleanalytics\Repository\CarrierRepository;
-use Ps_Googleanalytics;
+use PrestaShop\Module\Qlo_Googleanalytics\Repository\CarrierRepository;
+use Qlo_Googleanalytics;
 
 class HookActionCarrierProcess implements HookInterface
 {
@@ -30,7 +30,7 @@ class HookActionCarrierProcess implements HookInterface
     private $context;
     private $params;
 
-    public function __construct(Ps_Googleanalytics $module, Context $context)
+    public function __construct(Qlo_Googleanalytics $module, Context $context)
     {
         $this->module = $module;
         $this->context = $context;

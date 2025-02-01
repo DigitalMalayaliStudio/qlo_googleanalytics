@@ -18,18 +18,18 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Handler;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Handler;
 
 use Configuration;
 use Context;
-use Ps_Googleanalytics;
+use Qlo_Googleanalytics;
 
 class GanalyticsJsHandler
 {
     private $module;
     private $context;
 
-    public function __construct(Ps_Googleanalytics $module, Context $context)
+    public function __construct(Qlo_Googleanalytics $module, Context $context)
     {
         $this->module = $module;
         $this->context = $context;

@@ -18,18 +18,18 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Hooks;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Hooks;
 
 use Configuration;
 use Context;
 use Customer;
-use Ps_Googleanalytics;
+use Qlo_Googleanalytics;
 use Tools;
 
 class HookDisplayHeader implements HookInterface
 {
     /**
-     * @var Ps_Googleanalytics
+     * @var Qlo_Googleanalytics
      */
     private $module;
     /**
@@ -42,7 +42,7 @@ class HookDisplayHeader implements HookInterface
      */
     private $backOffice;
 
-    public function __construct(Ps_Googleanalytics $module, Context $context)
+    public function __construct(Qlo_Googleanalytics $module, Context $context)
     {
         $this->module = $module;
         $this->context = $context;
@@ -78,7 +78,7 @@ class HookDisplayHeader implements HookInterface
 
         return $this->module->display(
             $this->module->getLocalPath() . $this->module->name,
-            'ps_googleanalytics.tpl'
+            'qlo_googleanalytics.tpl'
         );
     }
 

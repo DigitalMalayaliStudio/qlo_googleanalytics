@@ -18,7 +18,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-use PrestaShop\Module\Ps_Googleanalytics\Repository\GanalyticsRepository;
+use PrestaShop\Module\Qlo_Googleanalytics\Repository\GanalyticsRepository;
 
 class AdminGanalyticsAjaxController extends ModuleAdminController
 {

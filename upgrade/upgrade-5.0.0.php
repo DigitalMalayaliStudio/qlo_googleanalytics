@@ -22,11 +22,11 @@ if (!defined('_PS_VERSION_')) {
 }
 
 /**
- * @param Ps_Googleanalytics $object
+ * @param Qlo_Googleanalytics $object
  */
 function upgrade_module_5_0_0($object)
 {
-    $database = new PrestaShop\Module\Ps_Googleanalytics\Database\Install($object);
+    $database = new PrestaShop\Module\Qlo_Googleanalytics\Database\Install($object);
 
     return
         Configuration::deleteByName('GA_V4_ENABLED') &&

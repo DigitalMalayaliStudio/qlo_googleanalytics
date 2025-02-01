@@ -8,7 +8,7 @@ To use it, you will need to create a Google Analytics account and insert your Go
 
 ## Compatibility
 
-PrestaShop: `1.7.7.0` or later
+QloApps: `1.6` or later
 
 ### Notes
 
@@ -25,7 +25,7 @@ Enhanced Ecommerce must be enabled in Google Analytics settings for full functio
 
 PrestaShop modules are open-source extensions to the PrestaShop e-commerce solution. Everyone is welcome and even encouraged to contribute with their own improvements.
 
-Google Analytics is compatible with PrestaShop 1.7.7 and newer.
+Google Analytics is compatible with QloApps 1.6 and newer.
 
 ### Requirements
 
@@ -40,8 +40,8 @@ Contributors **must** follow the following rules:
 Contributors wishing to edit a module's files should follow the following process:
 
 1. Create your GitHub account, if you do not have one already.
-2. Fork the ps_googleanalytics project to your GitHub account.
-3. Clone your fork to your local machine in the ```/modules``` directory of your PrestaShop installation.
+2. Fork the qlo_googleanalytics project to your GitHub account.
+3. Clone your fork to your local machine in the ```/modules``` directory of your QloApps installation.
 4. Create a branch in your local clone of the module for your changes.
 5. Change the files in your branch. Be sure to follow [the coding standards][1]!
 6. Push your changed branch to your fork in your GitHub account.
@@ -50,7 +50,7 @@ Contributors wishing to edit a module's files should follow the following proces
 
 That's it: you have contributed to this open source project! Congratulations!
 
-[1]: https://devdocs.prestashop.com/1.7/development/coding-standards/
-[2]: https://devdocs.prestashop.com/1.7/contribute/contribution-guidelines/
+[1]: https://devdocs.qloapps.com/development/
+[2]: https://devdocs.qloapps.com/contribute/
 [3]: https://help.github.com/articles/using-pull-requests
 [4]: https://support.google.com/analytics/answer/6032539

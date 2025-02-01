@@ -18,19 +18,19 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Hooks;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Hooks;
 
 use Context;
-use PrestaShop\Module\Ps_Googleanalytics\Handler\GanalyticsJsHandler;
-use PrestaShop\Module\Ps_Googleanalytics\Wrapper\ProductWrapper;
-use Ps_Googleanalytics;
+use PrestaShop\Module\Qlo_Googleanalytics\Handler\GanalyticsJsHandler;
+use PrestaShop\Module\Qlo_Googleanalytics\Wrapper\ProductWrapper;
+use Qlo_Googleanalytics;
 
 class HookDisplayFooterProduct implements HookInterface
 {
     private $module;
     private $context;
 
-    public function __construct(Ps_Googleanalytics $module, Context $context)
+    public function __construct(Qlo_Googleanalytics $module, Context $context)
     {
         $this->module = $module;
         $this->context = $context;

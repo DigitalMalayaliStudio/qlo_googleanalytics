@@ -22,7 +22,7 @@ if (!defined('_PS_VERSION_')) {
 }
 
 /**
- * @param Ps_Googleanalytics $object
+ * @param Qlo_Googleanalytics $object
  */
 function upgrade_module_4_2_0($object)
 {

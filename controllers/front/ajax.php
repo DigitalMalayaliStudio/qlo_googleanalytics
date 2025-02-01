@@ -18,9 +18,9 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-use PrestaShop\Module\Ps_Googleanalytics\Repository\GanalyticsRepository;
+use PrestaShop\Module\Qlo_Googleanalytics\Repository\GanalyticsRepository;
 
-class ps_GoogleanalyticsAjaxModuleFrontController extends ModuleFrontController
+class qlo_GoogleanalyticsAjaxModuleFrontController extends ModuleFrontController
 {
     public $ssl = true;
 

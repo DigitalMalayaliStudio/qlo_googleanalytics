@@ -18,7 +18,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Database;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Database;
 
 use Db;
 use Tab;

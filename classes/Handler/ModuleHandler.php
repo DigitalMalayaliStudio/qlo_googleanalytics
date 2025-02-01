@@ -18,7 +18,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  */
 
-namespace PrestaShop\Module\Ps_Googleanalytics\Handler;
+namespace PrestaShop\Module\Qlo_Googleanalytics\Handler;
 
 use Module;
 
